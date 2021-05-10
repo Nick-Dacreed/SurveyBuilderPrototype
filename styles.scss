@@ -1,0 +1,278 @@
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #ffffff;
+  --gray: #869ab8;
+  --gray-dark: #384c74;
+  --primary: #335eea;
+  --secondary: #506690;
+  --success: #42ba96;
+  --info: #7c69ef;
+  --warning: #fad776;
+  --danger: #df4759;
+  --light: #f9fbfd;
+  --dark: #2b354f;
+  --primary-desat: #6c8aec;
+  --black: #161c2d;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  select {
+    border: var(--gray);
+  }
+}
+
+.questionContainer {
+  position: relative;
+  width: 85vw;
+  height: auto;
+  margin-top: 20px;
+  padding: 30px;
+  box-shadow: 0px 1px 4px rgb(155, 155, 155);
+  border-radius: 8px;
+  font-family: var(--font-family-sans-serif);
+  .questionTitle {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--gray-dark);
+  }
+  .radioPointsDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0px 60px 0px;
+    height: 4px;
+    background-color: var(--gray);
+    transition: 0.3s;
+    span {
+      position: relative;
+      height: 35px;
+      width: 35px;
+      border: 4px solid var(--gray);
+      background-color: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      div {
+        position: absolute;
+        color: var(--gray);
+        width: 100px;
+        max-height: 60px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+      }
+    }
+  }
+  .sliderDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 10%;
+      margin: 0px;
+      font-weight: 600;
+    }
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 10%;
+      margin: 0px;
+      font-weight: 600;
+      input {
+        width: 50px;
+      }
+    }
+    .sliderWrap {
+      margin: 0px;
+      width: 90%;
+      position: relative;
+      .bubble {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        left: calc(50% - 19px);
+        top: -8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        color: var(--teal);
+        text-align: center;
+        border: 0px solid black;
+        font-weight: 600;
+      }
+      .slider {
+        height: 4px;
+        width: 100%;
+        cursor: pointer;
+        transition: 0.1s;
+        background-color: var(--gray);
+        -webkit-appearance: none;
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+          transition: 0.2s;
+          background-color: var(--teal);
+          color: var(--teal);
+          text-align: center;
+          &:hover {
+            transform: scale(1.5);
+            background-color: var(--light);
+            border: 2px solid var(--teal);
+          }
+        }
+      }
+    }
+  }
+  .outputDiv {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    color: var(--gray);
+    opacity: 0.5;
+    margin-top: 40px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1em;
+  }
+  .questionText {
+    color: var(--gray-dark);
+  }
+  .questionInput {
+    height: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 5px;
+    border: 0px;
+    border-bottom: 1px solid var(--gray);
+    border-radius: 2px;
+    color: var(--gray-dark);
+    &:focus {
+      outline: none;
+    }
+  }
+  .labelEdit {
+    position: absolute;
+    top: 50px;
+    input {
+      width: 50px;
+    }
+  }
+  .multiChoiceDiv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    #pointsSelector {
+      margin: 0px 0px 20px 20px;
+      border: var(--gray);
+      color: var(--gray-dark);
+    }
+    .showNumbersDiv {
+      display: flex;
+      padding-bottom: 20px;
+      justify-content: center;
+      font-size: 0.8em;
+      text-align: center;
+      align-items: center;
+    }
+  }
+}
+
+.addButton {
+  padding: 7px;
+  background-color: white;
+  color: var(--gray);
+  border: 0px;
+  border-bottom: 4px solid var(--gray);
+  border-right: 4px solid var(--gray);
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.1em;
+  margin-left: 80%;
+  &:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+    color: var(--light);
+    margin-top: 10px;
+  }
+}
+
+.deleteButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  div {
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: var(--gray);
+  }
+  .leftX {
+    transform: rotate(45deg);
+  }
+  .rightX {
+    transform: rotate(-45deg);
+  }
+  &:hover {
+    transform: scale(1.1);
+    div {
+      background-color: var(--gray-dark);
+    }
+  }
+}
