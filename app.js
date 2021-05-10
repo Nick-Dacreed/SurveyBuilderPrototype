@@ -12,7 +12,7 @@ class SurveyQuestion {
   }
 }
 
-// NEW QUESTION DEFAULTS
+// BUILDER DEFAULTS
 let newQuestion = {
   question: "",
   sliderType: "multi-choice",
