@@ -335,16 +335,16 @@ addButton.className = "addButton";
 addButton.innerHTML = "Add Question";
 addButton.addEventListener("click", () => {
   const addition = new SurveyQuestion(
-    newQuestion.question,
+    newQuestion.question === "..." ? "" : newQuestion.question,
     newQuestion.sliderType,
     newQuestion.points,
     newQuestion.scaleLabels,
     newQuestion.showNumbers
   );
   newQuestion = {
-    question: "Click to add Question",
+    question: "...",
     sliderType: newQuestion.sliderType,
-    points: newQuestion.points,
+    points: 5,
     scaleLabels: [...newQuestion.scaleLabels],
     showNumbers: true,
   };
@@ -355,6 +355,8 @@ addButton.addEventListener("click", () => {
   config.push(addition);
   renderQuestions();
   sliderBuilder(true);
+
+  console.log(config);
 });
 
 builder.appendChild(builderDiv);
@@ -401,7 +403,7 @@ const renderQuestions = () => {
                       "background-color": "var(--teal)",
                       color: "var(--light)",
                       border: "4px solid var(--gray)",
-                      "box-shadow": "0px 0px 4px var(--gray)",
+                      "box-shadow": "none",
                     }
                   : {
                       "background-color": "var(--teal)",
